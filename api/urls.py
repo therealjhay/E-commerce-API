@@ -1,16 +1,17 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import ProductViewSet
+from .views import ProductViewSet, UserCreateView, CategoryViewSet
 
 # Create a router instance
 router = DefaultRouter()
 
-# Register the ProductViewSet with the router
-# The first argument is the URL prefix ('products' in this case)
-# The second argument is the ViewSet class
-# The basename is used to name the URLs for reverse lookups
+# Register ViewSets with the router
 router.register(r'products', ProductViewSet, basename='product')
+router.register(r'categories', CategoryViewSet, basename='category')
 
 urlpatterns = [
+    # Router URLs handle all CRUD operations for products and categories
     path('', include(router.urls)),
+    # Custom URL for user registration
+    path('register/', UserCreateView.as_view(), name='user-register'),
 ]
