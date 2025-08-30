@@ -14,17 +14,6 @@ Advanced Search & Filtering: Products can be searched by name or filtered by cat
 
 Pagination: Results are paginated to handle large datasets efficiently.
 
-💻 Getting Started
-
-Install the required packages:
-
-pip install -r requirements.txt
-
-Run database migrations:
-
-python manage.py makemigrations
-python manage.py migrate
-
 Create a superuser to access the Django admin and get an authentication token:
 
 python manage.py createsuperuser
@@ -47,7 +36,7 @@ Permissions: Public access.
 
 Request Body: {"username": "your_username", "password": "your_password"}
 
-Response: {"token": "9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b"}
+Response: {"token": "token generated"}
 
 Users
 POST /api/register/
@@ -122,8 +111,7 @@ price_lte: Filters for products with a price less than or equal to the given val
 
 stock_quantity__gt: Filters for products with stock greater than the given value.
 
-Example URL:
-http://127.0.0.1:8000/api/products/?search=shirt&category=Clothing&price_lte=50
+
 
 Categories
 GET /api/categories/
